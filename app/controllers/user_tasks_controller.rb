@@ -13,13 +13,15 @@ class UserTasksController < ApplicationController
 
   def index
   	@user_tasks = current_user.user_task
+    @task_count = @user_tasks.count
   end
 
   def remove_task
   	@task = Task.find(params[:id])
   	@user_task = @task.user_task.first
-  	@user_task.delete
-  	#@task.user_task.destroy(@user_task)
+    #byebug
+  	@task.user_task.destroy(@user_task)
+    #@user_task.delete
 
   	redirect_to tasks_path, notice: "Tarea NO completada"
   end
