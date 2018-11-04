@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="row">
+		<% @tasks.each_slice(3) do |row| %>
+			<% row.each do |task| %>
+				<div class="col">
+					<div class="card">
+						<%= image_tag task.photo, class: 'card-img-top' %>
+							<div class="body">
+								<h5><%= task.name %></h5>
+								<p><%= task.description %></p>
+								<% if task.done_list?(task) %>
+									<%= link_to "No Listo", remove_task_user_task_path(task.id), class: 'btn btn-danger', method: :delete %>
+									
+								<% else %>
+									<%= link_to "Listo", task_user_tasks_path(task), class: 'btn btn-success', method: :post %>
+								<% end %>	
+							</div>
+					</div>
+				</div>
+			<% end %> 
+			<div class="w-100" style="margin-top: 20px"></div>
+		<% end %>
+	</div>
+</div>
