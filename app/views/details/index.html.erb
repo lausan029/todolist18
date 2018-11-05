@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="body">
+			<h1>Detalle</h1><br>
+				<h2><%= @task_detail.name %></h2>
+				<img src="<%= @task_detail.photo %>">
+				<p><%= @task_detail.description %></p>
+			
+			<h1>Ranking</h1>
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th>Username</th>
+				      <th colspan="3"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody>
+				    <% @task_ranking.each do |ranking| %>
+				      <tr>
+				        <td><%= ranking.email %></td>
+				      </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+				<br>
+			</div>
+		</div>
+</div>

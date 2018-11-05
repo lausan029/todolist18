@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'details/index'
   get 'user_tasks/create'
   #get 'tasks/index'
   #resources :tasks
